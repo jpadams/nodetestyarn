@@ -12,10 +12,14 @@ _workdir: "/usr/app"
 dagger.#Plan & {
 	actions: {
 		build: {
-			checkoutCode: core.#Source & {path: "."}
-			run:          docker.#Build & {
+			checkoutCode: core.#Source & {
+				path: "."
+			}
+			run: docker.#Build & {
 				steps: [
-					docker.#Pull & {source: "node:lts"},
+					docker.#Pull & {
+						source: "node:lts"
+					},
 					docker.#Copy & {
 						contents: checkoutCode.output
 						dest:     _workdir
