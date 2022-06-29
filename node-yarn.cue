@@ -24,18 +24,20 @@ dagger.#Plan & {
 						contents: checkoutCode.output
 						dest:     _workdir
 					},
-					docker.#Set & {config: workdir: _workdir},
+					docker.#Set & {
+						config: workdir: _workdir
+					},
 					bash.#Run & {
 						script: contents: """
-					      yarn install
-					      """
+							yarn install
+							"""
 					},
 					bash.#Run & {
 						always: true
 						script: contents: """
-                            yarn run build
-                            yarn run test
-                            """
+							yarn run build
+							yarn run test
+							"""
 					},
 				]
 			}
