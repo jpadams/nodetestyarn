@@ -17,6 +17,7 @@ dagger.#Plan & {
 				path: "."
 			}
 			// Pulls from Docker Hub by default, but you can set registry/auth
+			// Choosing an image with yarn/npm and bash already installed
 			pull: docker.#Pull & {
 				source: "node:lts"
 			}
