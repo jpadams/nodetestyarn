@@ -9,7 +9,6 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: "20.10.14"
-          docker_layer_caching: true
       - run:
           name: "Install Dagger"
           command: |
@@ -20,7 +19,6 @@ jobs:
           name: "Run Dagger"
           command: |
             dagger do build --log-format plain
-            echo "done"
 
 workflows:
   dagger-workflow:
