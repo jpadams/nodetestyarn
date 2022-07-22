@@ -20,6 +20,7 @@ jobs:
           name: "Run Dagger"
           command: |
             dagger do build --log-format plain
+            echo "done"
 
 workflows:
   dagger-workflow:
